@@ -1,0 +1,641 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+body {
+  background-color: #e8f0fb;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+.navbar:hover {
+  transform: translateY(0);
+}
+.nav-hover-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px; /* small strip always visible */
+  z-index: 999;
+}
+.logo {
+  background-color: white;
+}
+.spnLogo {
+  font-size: 26px;
+  font-weight: 700;
+  padding-left: 60px;
+  background-color: white;
+}
+.menuBtns {
+  display: flex;
+  gap: 40px;
+  margin-right: 40px;
+  background-color: white;
+}
+.menuBtns a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  background-color: white;
+}
+.menuBtns a:hover {
+  color: rgb(144, 144, 244);
+  transition: 0.1s ease-in-out;
+}
+.bi-moon-fill {
+  background: transparent;
+  margin-left: 80px;
+  color: hsl(0, 1%, 25%);
+}
+.bi-moon-fill:hover {
+  cursor: pointer;
+}
+.bi-brightness-high-fill {
+  background: transparent;
+  margin-left: 80px;
+}
+.bi-brightness-high-fill:hover {
+  cursor: pointer;
+}
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+.mainIntro {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 4px;
+  height: 76vh;
+}
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 60px;
+}
+.intro h1 {
+  font-weight: 600;
+  font-size: 42px;
+}
+.intro h3 {
+  padding-top: 20px;
+  color: hsl(0, 2%, 22%);
+  font-size: 22px;
+  padding-left: 15px;
+}
+.intro p {
+  color: hsl(0, 2%, 22%);
+  padding-top: 10px;
+  padding-left: 15px;
+  font-size: 20px;
+}
+
+.introBtns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 92px;
+  background-color: #e8f0fb;
+  padding: 8px;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-radius: 12px;
+}
+.introBtns a {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  border: 1px solid rgb(196, 192, 192);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.introBtns a:hover {
+  background-color: white;
+  color: black;
+  transition: 0.1s ease;
+  cursor: pointer;
+  border: 1px solid rgb(196, 192, 192);
+}
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background-color: white;
+  width: 90%;
+  height: 70vh;
+  margin: 40px auto;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+.about h2 {
+  margin: 20px;
+  padding-top: 40px;
+  background-color: white;
+  font-size: 32px;
+}
+.aboutPara {
+  width: 50%;
+  padding: 40px;
+  line-height: 1.5rem;
+  background-color: white;
+  font-size: 20px;
+}
+.education {
+  padding: 12px;
+  width: 90%;
+  margin: 40px auto;
+  border-radius: 12px;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 5px 15px rgba(0, 0, 0, 0.08);
+}
+.education h2 {
+  background-color: white;
+  font-size: 32px;
+  padding-top: 40px;
+}
+.educationCard {
+  width: 100%;
+  padding: 25px 20px;
+  line-height: 1.5rem;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  background-color: white;
+}
+.educationCard p,
+strong {
+  background-color: white;
+}
+.educationLeft {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  line-height: 2rem;
+  background-color: white;
+}
+.educationRight {
+  line-height: 2rem;
+  background-color: white;
+}
+.projectsMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 12px;
+  width: 90%;
+  padding: 20px;
+  margin: 20px auto;
+}
+.projectsMain h2 {
+  padding: 30px 20px;
+  background-color: white;
+  font-size: 32px;
+}
+.projects {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: white;
+}
+.prjct {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(243, 242, 242);
+  border-radius: 16px;
+  width: 280px;
+
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.prjct:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 18px 40px rgba(0, 0, 0, 0.12);
+}
+.prImage {
+  border-radius: 12px;
+  background-color: rgb(243, 242, 242);
+}
+.prImage img {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.prDescription {
+  background-color: rgb(243, 242, 242) !important;
+}
+.prDescription {
+  width: 280px;
+}
+.prDescription h2,
+.teckStackTxt,
+.prDesc,
+.teckStack img,
+.teckStack,
+.techLogos {
+  background-color: rgb(243, 242, 242);
+}
+.teckStack {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.prDescription h2 {
+  padding: 8px 6px;
+  font-size: 18px;
+  font-weight: 560;
+}
+.prDescription p {
+  padding: 0px 6px 8px 6px;
+  opacity: 0.8;
+  font-size: 15px;
+}
+.teckStackTxt {
+  opacity: 1;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.prButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 92px;
+  background-color: rgb(243, 242, 242);
+  padding: 8px;
+  border-radius: 12px;
+}
+.prButtons a {
+  padding: 6px 16px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  border: 1px solid rgb(196, 192, 192);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.prButtons a:hover {
+  background-color: white;
+  color: black;
+  transition: 0.1s ease;
+  cursor: pointer;
+  border: 1px solid rgb(196, 192, 192);
+}
+.mainSkills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  padding: 20px;
+  padding-top: 40px;
+  background-color: white;
+  width: 90%;
+  margin: 30px auto;
+  border-radius: 12px;
+}
+.skillsHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+.skillsHeader .skillSet {
+  font-size: 18px;
+  color: hsl(0, 1%, 26%);
+}
+.skillsProgress {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  width: 100%;
+  gap: 20px;
+  /* border: 1px solid black; */
+  background-color: white;
+}
+.technologies,
+.toolsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  background-color: rgb(243, 242, 242);
+  height: auto;
+  line-height: 1.8rem;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1.6;
+  background-color: rgb(243, 242, 242);
+  height: auto;
+  line-height: 1.8rem;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.progrsBars {
+  display: flex;
+  gap: 40px;
+}
+.technologies:hover,
+.overview:hover,
+.toolsSection:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 18px 40px rgba(0, 0, 0, 0.12);
+}
+.techDescription,
+.overviewDesc,
+.toolsDesc {
+  padding: 20px;
+  font-size: 18px;
+}
+.techStacks,
+.overviewBars,
+.tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  color: hsl(0, 0%, 13%);
+}
+
+/* DarkMode===============================================*/
+/* DarkMode =============================================*/
+/* DarkMode============================================ */
+body.dark-mode {
+  background-color: #121212;
+  color: #e8e8e8;
+}
+
+/* Navbar */
+body.dark-mode .navbar {
+  background-color: #1e1e1e;
+  box-shadow: 0 8px 20px rgba(68, 68, 68, 0.664);
+}
+body.dark-mode .spnLogo {
+  background-color: #1e1e1e;
+  color: white;
+}
+body.dark-mode .logo {
+  background-color: #1e1e1e;
+  color: white;
+}
+body.dark-mode .menuBtns {
+  color: white;
+  background-color: #1e1e1e;
+}
+body.dark-mode .menuBtns a {
+  color: #e8e8e8;
+  background-color: #1e1e1e;
+}
+body.dark-mode .bi-moon-fill {
+  color: white;
+}
+body.dark-mode .menuBtns a:hover {
+  color: #9aa7ff;
+}
+
+/* Intro */
+body.dark-mode .intro h1 {
+  color: #ffffff;
+}
+
+body.dark-mode .intro h3,
+body.dark-mode .intro p {
+  color: #cfcfcf;
+}
+
+body.dark-mode .introBtns {
+  background-color: #121212;
+}
+body.dark-mode .introBtns a {
+  background-color: white;
+  color: black;
+}
+body.dark-mode .introBtns a:hover {
+  background-color: #1e1e1e;
+  color: white;
+  transition: 0.1s ease;
+}
+/* About */
+body.dark-mode .about {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .about h2,
+body.dark-mode .aboutPara {
+  background-color: #1e1e1e;
+  color: #e8e8e8;
+}
+
+/* Education */
+body.dark-mode .education {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .education h2,
+body.dark-mode .educationCard,
+body.dark-mode .educationLeft,
+body.dark-mode .educationRight,
+body.dark-mode .educationCard p,
+body.dark-mode strong {
+  background-color: #1e1e1e;
+  color: #e8e8e8;
+}
+
+/* Projects */
+body.dark-mode .projectsMain {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .ProH2 {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode .projects {
+  background-color: #1e1e1e;
+}
+body.dark-mode .prImage {
+  background-color: #2a2a2a;
+}
+/* Project cards */
+body.dark-mode .prjct {
+  background-color: #2a2a2a;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .prDescription,
+body.dark-mode .teckStack,
+body.dark-mode .prButtons {
+  background-color: #2a2a2a !important;
+}
+body.dark-mode .teckStackTxt {
+  background-color: #2a2a2a;
+  color: white;
+}
+body.dark-mode .techLogos {
+  background-color: #2a2a2a;
+}
+body.dark-mode .techLogos img {
+  background-color: #2a2a2a;
+}
+body.dark-mode .prDescription h2,
+body.dark-mode .prDescription p {
+  color: #e8e8e8;
+  background-color: #2a2a2a;
+}
+
+/* Buttons */
+body.dark-mode .prButtons a {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+body.dark-mode .prButtons a:hover {
+  background-color: #fff;
+  color: #000;
+}
+/* =========================
+   SKILLS SECTION - DARK MODE
+========================= */
+
+body.dark-mode .mainSkills {
+  background-color: #1e1e1e;
+  color: #e8e8e8;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+body.dark-mode .skillsHeader .skillSet {
+  color: #cfcfcf;
+}
+
+/* Progress section container */
+body.dark-mode .skillsProgress {
+  background-color: #1e1e1e;
+}
+
+/* Cards */
+body.dark-mode .technologies,
+body.dark-mode .toolsSection,
+body.dark-mode .overview {
+  background-color: #2a2a2a;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+  color: #e8e8e8;
+}
+
+/* Hover effect (dark mode enhanced) */
+body.dark-mode .technologies:hover,
+body.dark-mode .overview:hover,
+body.dark-mode .toolsSection:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.6),
+    0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Descriptions */
+body.dark-mode .techDescription,
+body.dark-mode .overviewDesc,
+body.dark-mode .toolsDesc {
+  color: #d6d6d6;
+}
+
+/* Text inside lists / bars */
+body.dark-mode .techStacks,
+body.dark-mode .overviewBars,
+body.dark-mode .tools {
+  color: #dcdcdc;
+}
+
+/* Optional: subtle highlight for headings */
+body.dark-mode .techStacks span,
+body.dark-mode .overviewBars span,
+body.dark-mode .tools span {
+  color: #ffffff;
+}
+
+/* Progress bars background (if you have container bars) */
+/* body.dark-mode .progrsBars {
+  background-color: #1e1e1e;
+} */
