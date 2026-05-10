@@ -251,7 +251,7 @@ strong {
   align-items: center;
   background-color: rgb(243, 242, 242);
   border-radius: 16px;
-  width: 280px;
+  width: min(280px, 100%);
 
   transition: all 0.3s ease;
   box-shadow:
@@ -271,12 +271,14 @@ strong {
 .prImage img {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
+  max-width: 100%;
+  height: auto;
 }
 .prDescription {
   background-color: rgb(243, 242, 242) !important;
 }
 .prDescription {
-  width: 280px;
+  width: 100%;
 }
 .prDescription h2,
 .teckStackTxt,
@@ -954,10 +956,6 @@ body.dark-mode .contactForm button:hover {
     gap: 30px;
   }
 
-  .prjct {
-    width: 284px;
-  }
-
   .aboutPara {
     width: 90%;
     font-size: 18px;
@@ -1125,10 +1123,6 @@ body.dark-mode .contactForm button:hover {
 
   .projectsMain {
     width: 95%;
-  }
-
-  .prjct {
-    width: 81%;
   }
 
   .skillsProgress {
