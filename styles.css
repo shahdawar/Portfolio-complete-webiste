@@ -430,7 +430,130 @@ strong {
   text-align: justify;
   color: hsl(0, 0%, 13%);
 }
-
+.mainContact {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 30px auto;
+  width: 90%;
+  background-color: white;
+  border-radius: 12px;
+}
+.contactHeader {
+  padding: 10px;
+  font-size: 22px;
+}
+.contactArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+.cardArea {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 16px;
+}
+.contactCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  line-height: 1.6rem;
+  background-color: rgb(243, 242, 242);
+  border-radius: 12px;
+  width: 240px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease-in-out;
+}
+.fa-envelope {
+  color: rgb(12, 39, 125);
+}
+.fa-whatsapp {
+  color: darkgreen;
+}
+.fa-linkedin {
+  color: darkblue;
+}
+.contactCards:hover {
+  box-shadow:
+    0 20px 30px rgba(0, 0, 0, 0.12),
+    0 10px 15px rgba(0, 0, 0, 0.08),
+    0 30px 40px rgba(0, 0, 0, 0.15);
+}
+.contactCards p {
+  color: rgb(43, 43, 43);
+}
+.contactCards a {
+  text-decoration: none;
+  color: black;
+}
+.contactCards a:hover {
+  color: rgb(72, 71, 71);
+}
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(243, 242, 242);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease-in-out;
+  border-radius: 12px;
+}
+.contactForm:hover {
+  box-shadow:
+    0 20px 30px rgba(0, 0, 0, 0.12),
+    0 10px 15px rgba(0, 0, 0, 0.08),
+    0 30px 40px rgba(0, 0, 0, 0.15);
+}
+.contactForm form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: justify;
+  padding: 20px;
+}
+.contactForm form input,
+textarea,
+button {
+  font-size: 16px;
+  padding: 8px;
+  color: rgb(23, 22, 22);
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
+  outline: 1px solid rgb(178, 177, 177);
+  width: 280px;
+  background-color: hsla(0, 0%, 34%, 0.283);
+}
+.contactForm button {
+  background-color: black;
+  color: white;
+  transition: all 0.2s ease;
+  width: fit-content;
+  padding: 12px 20px;
+}
+.contactForm button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+label {
+  font-weight: 500;
+  padding-bottom: 0px;
+}
 /* DarkMode===============================================*/
 /* DarkMode =============================================*/
 /* DarkMode============================================ */
@@ -635,7 +758,263 @@ body.dark-mode .tools span {
   color: #ffffff;
 }
 
-/* Progress bars background (if you have container bars) */
-/* body.dark-mode .progrsBars {
+body.dark-mode .mainContact {
   background-color: #1e1e1e;
-} */
+  color: #e8e8e8;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+body.dark-mode .contactHeader {
+  color: #ffffff;
+}
+body.dark-mode .contactArea {
+  background-color: #1e1e1e;
+}
+/* Cards area */
+body.dark-mode .cardArea {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .contactCards {
+  background-color: #2a2a2a;
+  color: #e8e8e8;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .contactCards:hover {
+  box-shadow:
+    0 20px 30px rgba(0, 0, 0, 0.6),
+    0 10px 15px rgba(0, 0, 0, 0.5),
+    0 30px 40px rgba(0, 0, 0, 0.7);
+}
+body.dark-mode .fa-envelope {
+  color: rgb(150, 154, 35);
+}
+body.dark-mode .fa-whatsapp {
+  color: green;
+}
+body.dark-mode .fa-linkedin {
+  color: lightblue;
+}
+
+body.dark-mode .contactCards p {
+  color: #d6d6d6;
+}
+
+body.dark-mode .contactCards a {
+  color: #ffffff;
+}
+
+body.dark-mode .contactCards a:hover {
+  color: #9aa7ff;
+}
+
+/* Contact form */
+body.dark-mode .contactForm {
+  background-color: #2a2a2a;
+  color: #e8e8e8;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .contactForm:hover {
+  box-shadow:
+    0 20px 30px rgba(0, 0, 0, 0.6),
+    0 10px 15px rgba(0, 0, 0, 0.5),
+    0 30px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Labels */
+body.dark-mode label {
+  color: #dcdcdc;
+}
+
+/* Inputs & textarea */
+body.dark-mode .contactForm form input,
+body.dark-mode .contactForm form textarea {
+  background-color: #1e1e1e;
+  color: #e8e8e8;
+  outline: 1px solid #444;
+}
+
+/* Button */
+body.dark-mode .contactForm button {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #444;
+  outline: black;
+}
+
+body.dark-mode .contactForm button:hover {
+  background-color: #000;
+  color: #fff;
+}
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .mainIntro {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .aboutPara {
+    width: 80%;
+  }
+
+  .educationCard {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .skillsProgress {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contactArea {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .cardArea {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .menuBtns {
+    gap: 20px;
+    margin-right: 10px;
+  }
+
+  .menuBtns a {
+    font-size: 16px;
+  }
+
+  .intro h1 {
+    font-size: 32px;
+  }
+
+  .intro h3 {
+    font-size: 18px;
+  }
+
+  .intro p {
+    font-size: 16px;
+  }
+
+  .introBtns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .projects {
+    gap: 30px;
+  }
+
+  .prjct {
+    width: 260px;
+  }
+
+  .aboutPara {
+    width: 90%;
+    font-size: 18px;
+  }
+
+  .contactForm form input,
+  .contactForm form textarea {
+    width: 240px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .menuBtns {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0 0 0;
+  }
+
+  .spnLogo {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .mainIntro {
+    padding-top: 40px;
+  }
+
+  .intro h1 {
+    font-size: 26px;
+  }
+
+  .intro h3 {
+    font-size: 16px;
+  }
+
+  .intro p {
+    font-size: 14px;
+  }
+
+  .about {
+    height: auto;
+    padding: 20px;
+  }
+
+  .aboutPara {
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  .education {
+    height: auto;
+  }
+
+  .projectsMain {
+    width: 95%;
+  }
+
+  .prjct {
+    width: 100%;
+  }
+
+  .skillsProgress {
+    flex-direction: column;
+  }
+
+  .contactArea {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contactCards {
+    width: 100%;
+  }
+
+  .contactForm form input,
+  .contactForm form textarea {
+    width: 100%;
+  }
+
+  .introBtns a {
+    width: 100%;
+    text-align: center;
+  }
+}
