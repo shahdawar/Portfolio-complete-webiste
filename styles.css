@@ -78,6 +78,9 @@ body {
 .bi-brightness-high-fill:hover {
   cursor: pointer;
 }
+.hamburgerBtn {
+  display: none;
+}
 .mainSection {
   display: flex;
   flex-direction: column;
@@ -891,9 +894,39 @@ body.dark-mode .contactForm button:hover {
 
 /* Tablets */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 12px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Logo centered on top */
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .spnLogo {
+    padding-left: 0;
+  }
+
+  /* Menu becomes vertical stack */
   .menuBtns {
-    gap: 20px;
-    margin-right: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-right: 0;
+  }
+
+  /* Move moon icon ABOVE menu links */
+  .menuBtns .bi-moon-fill {
+    order: -1;
+    margin-left: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
   }
 
   .menuBtns a {
@@ -939,23 +972,126 @@ body.dark-mode .contactForm button:hover {
 /* Mobile Phones */
 @media (max-width: 480px) {
   .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    padding: 0 18px;
+    overflow: visible;
   }
 
-  .menuBtns {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px 0 0 0;
+  /* Logo */
+  .logo {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .spnLogo {
     padding-left: 0;
-    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
   }
 
+  /* Hide nav links */
+  .menuBtns a {
+    display: none;
+  }
+
+  /* Menu container */
+  .menuBtns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 0;
+    gap: 16px;
+    position: static;
+  }
+  .menuBtns.active a {
+    display: block;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    background-color: white;
+    color: black;
+    z-index: 1001;
+  }
+
+  .menuBtns.active::before {
+    content: "";
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: 286px;
+    background-color: white;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+  }
+
+  .menuBtns.active a:nth-of-type(1) {
+    top: 75px;
+  }
+
+  .menuBtns.active a:nth-of-type(2) {
+    top: 119px;
+  }
+
+  .menuBtns.active a:nth-of-type(3) {
+    top: 163px;
+  }
+
+  .menuBtns.active a:nth-of-type(4) {
+    top: 207px;
+  }
+
+  .menuBtns.active a:nth-of-type(5) {
+    top: 251px;
+  }
+
+  .menuBtns.active a:nth-of-type(6) {
+    top: 295px;
+  }
+  /* Moon icon */
+  .menuBtns .bi-moon-fill,
+  .menuBtns .bi-brightness-high-fill {
+    margin-left: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    order: 1;
+  }
+
+  /* Hamburger icon */
+  .hamburgerBtn {
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: black;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    order: 2;
+  }
+
+  /* Dark mode hamburger */
+  body.dark-mode .hamburgerBtn {
+    color: white;
+  }
+
+  body.dark-mode .menuBtns.active::before,
+  body.dark-mode .menuBtns.active a {
+    background-color: #1e1e1e;
+    color: #e8e8e8;
+  }
   .mainIntro {
     padding-top: 40px;
   }
@@ -992,7 +1128,7 @@ body.dark-mode .contactForm button:hover {
   }
 
   .prjct {
-    width: 100%;
+    width: 76%;
   }
 
   .skillsProgress {
@@ -1016,5 +1152,55 @@ body.dark-mode .contactForm button:hover {
   .introBtns a {
     width: 100%;
     text-align: center;
+  }
+
+  .skillsProgress {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Equal card sizing */
+  .skillsProgress .technologies,
+  .skillsProgress .overview,
+  .skillsProgress .toolsSection {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Overview side-by-side layout */
+  .overview .progrsBars {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+  }
+
+  /* Left text column */
+  .overviewtxt {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .overviewtxt p {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* Right progress column */
+  .overviewBars {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .overviewBars p {
+    font-size: 11px;
+    line-height: 1.2rem;
+    white-space: nowrap;
   }
 }
