@@ -1,9 +1,18 @@
 const navbar = document.querySelector(".navbar");
 const hoverZone = document.querySelector(".nav-hover-zone");
+const mobileQuery = window.matchMedia("(max-width: 480px)");
 
 let lastScrollY = window.scrollY;
+let ticking = false;
 
-window.addEventListener("scroll", () => {
+const updateNavbarOnScroll = () => {
+  if (mobileQuery.matches) {
+    navbar.classList.remove("hidden");
+    lastScrollY = window.scrollY;
+    ticking = false;
+    return;
+  }
+
   if (window.scrollY > lastScrollY) {
     navbar.classList.add("hidden");
   } else {
@@ -11,6 +20,22 @@ window.addEventListener("scroll", () => {
   }
 
   lastScrollY = window.scrollY;
+  ticking = false;
+};
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNavbarOnScroll);
+      ticking = true;
+    }
+  },
+  { passive: true },
+);
+
+mobileQuery.addEventListener("change", () => {
+  navbar.classList.remove("hidden");
 });
 
 // hover zone brings navbar back

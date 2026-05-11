@@ -3,11 +3,17 @@
   margin: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth;
   scrollbar-width: none;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   background-color: #e8f0fb;
+  overflow-x: hidden;
+  touch-action: pan-y;
 }
 .navbar {
   display: flex;
@@ -22,13 +28,15 @@ body {
   width: 100%;
   height: 60px;
   transition: transform 0.3s ease;
+  transform: translateZ(0);
+  will-change: transform;
   z-index: 1000;
 }
 .navbar.hidden {
-  transform: translateY(-100%);
+  transform: translateY(-100%) translateZ(0);
 }
 .navbar:hover {
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
 }
 .nav-hover-zone {
   position: fixed;
@@ -253,16 +261,20 @@ strong {
   border-radius: 16px;
   width: min(280px, 100%);
 
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  transform: translateZ(0);
+  will-change: transform;
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.06),
-    0 10px 30px rgba(0, 0, 0, 0.08);
+    0 3px 8px rgba(0, 0, 0, 0.06),
+    0 8px 18px rgba(0, 0, 0, 0.07);
 }
 .prjct:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) translateZ(0);
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.08),
-    0 18px 40px rgba(0, 0, 0, 0.12);
+    0 6px 14px rgba(0, 0, 0, 0.08),
+    0 12px 24px rgba(0, 0, 0, 0.1);
 }
 .prImage {
   border-radius: 12px;
@@ -387,10 +399,14 @@ strong {
   line-height: 1.8rem;
   padding: 10px;
   border-radius: 12px;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  transform: translateZ(0);
+  will-change: transform;
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.06),
-    0 10px 30px rgba(0, 0, 0, 0.08);
+    0 3px 8px rgba(0, 0, 0, 0.06),
+    0 8px 18px rgba(0, 0, 0, 0.07);
 }
 .overview {
   display: flex;
@@ -403,10 +419,14 @@ strong {
   line-height: 1.8rem;
   padding: 10px;
   border-radius: 12px;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  transform: translateZ(0);
+  will-change: transform;
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.06),
-    0 10px 30px rgba(0, 0, 0, 0.08);
+    0 3px 8px rgba(0, 0, 0, 0.06),
+    0 8px 18px rgba(0, 0, 0, 0.07);
 }
 .progrsBars {
   display: flex;
@@ -415,10 +435,10 @@ strong {
 .technologies:hover,
 .overview:hover,
 .toolsSection:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) translateZ(0);
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.08),
-    0 18px 40px rgba(0, 0, 0, 0.12);
+    0 6px 14px rgba(0, 0, 0, 0.08),
+    0 12px 24px rgba(0, 0, 0, 0.1);
 }
 .techDescription,
 .overviewDesc,
@@ -474,9 +494,13 @@ strong {
   border-radius: 12px;
   width: 240px;
   box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.1),
-    0 4px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.2s ease-in-out;
+    0 6px 16px rgba(0, 0, 0, 0.09),
+    0 3px 6px rgba(0, 0, 0, 0.07);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  transform: translateZ(0);
+  will-change: transform;
 }
 .fa-envelope {
   color: rgb(12, 39, 125);
@@ -488,10 +512,10 @@ strong {
   color: darkblue;
 }
 .contactCards:hover {
+  transform: translateY(-2px) translateZ(0);
   box-shadow:
-    0 20px 30px rgba(0, 0, 0, 0.12),
-    0 10px 15px rgba(0, 0, 0, 0.08),
-    0 30px 40px rgba(0, 0, 0, 0.15);
+    0 8px 18px rgba(0, 0, 0, 0.1),
+    0 5px 10px rgba(0, 0, 0, 0.08);
 }
 .contactCards p {
   color: rgb(43, 43, 43);
@@ -511,16 +535,20 @@ strong {
   padding: 20px;
   background-color: rgb(243, 242, 242);
   box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.1),
-    0 4px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.2s ease-in-out;
+    0 6px 16px rgba(0, 0, 0, 0.09),
+    0 3px 6px rgba(0, 0, 0, 0.07);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  transform: translateZ(0);
+  will-change: transform;
   border-radius: 12px;
 }
 .contactForm:hover {
+  transform: translateY(-2px) translateZ(0);
   box-shadow:
-    0 20px 30px rgba(0, 0, 0, 0.12),
-    0 10px 15px rgba(0, 0, 0, 0.08),
-    0 30px 40px rgba(0, 0, 0, 0.15);
+    0 8px 18px rgba(0, 0, 0, 0.1),
+    0 5px 10px rgba(0, 0, 0, 0.08);
 }
 .contactForm form {
   display: flex;
@@ -546,7 +574,9 @@ button {
 .contactForm button {
   background-color: black;
   color: white;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
   width: fit-content;
   padding: 12px 20px;
 }
@@ -570,7 +600,7 @@ body.dark-mode {
 /* Navbar */
 body.dark-mode .navbar {
   background-color: #1e1e1e;
-  box-shadow: 0 8px 20px rgba(68, 68, 68, 0.664);
+  box-shadow: 0 5px 14px rgba(68, 68, 68, 0.45);
 }
 body.dark-mode .spnLogo {
   background-color: #1e1e1e;
@@ -665,8 +695,8 @@ body.dark-mode .prImage {
 body.dark-mode .prjct {
   background-color: #2a2a2a;
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.4),
-    0 10px 30px rgba(0, 0, 0, 0.5);
+    0 3px 8px rgba(0, 0, 0, 0.35),
+    0 8px 18px rgba(0, 0, 0, 0.42);
 }
 
 body.dark-mode .prDescription,
@@ -727,8 +757,8 @@ body.dark-mode .toolsSection,
 body.dark-mode .overview {
   background-color: #2a2a2a;
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.4),
-    0 10px 30px rgba(0, 0, 0, 0.5);
+    0 3px 8px rgba(0, 0, 0, 0.35),
+    0 8px 18px rgba(0, 0, 0, 0.42);
   color: #e8e8e8;
 }
 
@@ -736,10 +766,10 @@ body.dark-mode .overview {
 body.dark-mode .technologies:hover,
 body.dark-mode .overview:hover,
 body.dark-mode .toolsSection:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) translateZ(0);
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.6),
-    0 18px 40px rgba(0, 0, 0, 0.7);
+    0 6px 14px rgba(0, 0, 0, 0.5),
+    0 12px 24px rgba(0, 0, 0, 0.58);
 }
 
 /* Descriptions */
@@ -785,15 +815,14 @@ body.dark-mode .contactCards {
   background-color: #2a2a2a;
   color: #e8e8e8;
   box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.4),
-    0 4px 8px rgba(0, 0, 0, 0.5);
+    0 6px 16px rgba(0, 0, 0, 0.35),
+    0 3px 6px rgba(0, 0, 0, 0.42);
 }
 
 body.dark-mode .contactCards:hover {
   box-shadow:
-    0 20px 30px rgba(0, 0, 0, 0.6),
-    0 10px 15px rgba(0, 0, 0, 0.5),
-    0 30px 40px rgba(0, 0, 0, 0.7);
+    0 8px 18px rgba(0, 0, 0, 0.5),
+    0 5px 10px rgba(0, 0, 0, 0.45);
 }
 body.dark-mode .fa-envelope {
   color: rgb(150, 154, 35);
@@ -822,15 +851,14 @@ body.dark-mode .contactForm {
   background-color: #2a2a2a;
   color: #e8e8e8;
   box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.4),
-    0 4px 8px rgba(0, 0, 0, 0.5);
+    0 6px 16px rgba(0, 0, 0, 0.35),
+    0 3px 6px rgba(0, 0, 0, 0.42);
 }
 
 body.dark-mode .contactForm:hover {
   box-shadow:
-    0 20px 30px rgba(0, 0, 0, 0.6),
-    0 10px 15px rgba(0, 0, 0, 0.5),
-    0 30px 40px rgba(0, 0, 0, 0.7);
+    0 8px 18px rgba(0, 0, 0, 0.5),
+    0 5px 10px rgba(0, 0, 0, 0.45);
 }
 
 /* Labels */
@@ -860,6 +888,125 @@ body.dark-mode .contactForm button:hover {
 }
 /* Responsiveness */
 @media (max-width: 1024px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    padding: 0 18px;
+    overflow: visible;
+  }
+
+  .logo {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .spnLogo {
+    padding-left: 0;
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .menuBtns a {
+    display: none;
+  }
+
+  .menuBtns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 0;
+    gap: 16px;
+    position: static;
+  }
+
+  .menuBtns.active a {
+    display: block;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    background-color: white;
+    color: black;
+    z-index: 1001;
+  }
+
+  .menuBtns.active::before {
+    content: "";
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: 286px;
+    background-color: white;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+  }
+
+  .menuBtns.active a:nth-of-type(1) {
+    top: 75px;
+  }
+
+  .menuBtns.active a:nth-of-type(2) {
+    top: 119px;
+  }
+
+  .menuBtns.active a:nth-of-type(3) {
+    top: 163px;
+  }
+
+  .menuBtns.active a:nth-of-type(4) {
+    top: 207px;
+  }
+
+  .menuBtns.active a:nth-of-type(5) {
+    top: 251px;
+  }
+
+  .menuBtns.active a:nth-of-type(6) {
+    top: 295px;
+  }
+
+  .menuBtns .bi-moon-fill,
+  .menuBtns .bi-brightness-high-fill {
+    margin-left: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    order: 1;
+  }
+
+  .hamburgerBtn {
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: black;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    order: 2;
+  }
+
+  body.dark-mode .hamburgerBtn {
+    color: white;
+  }
+
+  body.dark-mode .menuBtns.active::before,
+  body.dark-mode .menuBtns.active a {
+    background-color: #1e1e1e;
+    color: #e8e8e8;
+  }
+
   .mainIntro {
     flex-direction: column;
     height: auto;
@@ -896,45 +1043,6 @@ body.dark-mode .contactForm button:hover {
 
 /* Tablets */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 12px;
-    align-items: center;
-    gap: 10px;
-  }
-
-  /* Logo centered on top */
-  .logo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .spnLogo {
-    padding-left: 0;
-  }
-
-  /* Menu becomes vertical stack */
-  .menuBtns {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-right: 0;
-  }
-
-  /* Move moon icon ABOVE menu links */
-  .menuBtns .bi-moon-fill {
-    order: -1;
-    margin-left: 0;
-    margin-bottom: 10px;
-    font-size: 18px;
-  }
-
-  .menuBtns a {
-    font-size: 16px;
-  }
-
   .intro h1 {
     font-size: 32px;
   }
@@ -969,6 +1077,18 @@ body.dark-mode .contactForm button:hover {
 
 /* Mobile Phones */
 @media (max-width: 480px) {
+  * {
+    background-attachment: scroll !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    overscroll-behavior-x: none;
+  }
+
   .navbar {
     display: flex;
     flex-direction: row;
@@ -977,6 +1097,20 @@ body.dark-mode .contactForm button:hover {
     height: 65px;
     padding: 0 18px;
     overflow: visible;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: none;
+  }
+
+  .navbar.hidden {
+    transform: translateZ(0);
+  }
+
+  .menuBtns.active::before {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
   }
 
   /* Logo */
@@ -1028,7 +1162,7 @@ body.dark-mode .contactForm button:hover {
     width: 100%;
     height: 286px;
     background-color: white;
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
     z-index: 1000;
   }
 
@@ -1092,6 +1226,47 @@ body.dark-mode .contactForm button:hover {
   }
   .mainIntro {
     padding-top: 40px;
+  }
+
+  .prjct,
+  .technologies,
+  .overview,
+  .toolsSection,
+  .contactCards,
+  .contactForm {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.15s ease;
+    transform: translateZ(0);
+    will-change: auto;
+  }
+
+  .prjct:hover,
+  .technologies:hover,
+  .overview:hover,
+  .toolsSection:hover,
+  .contactCards:hover,
+  .contactForm:hover {
+    transform: translateZ(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  body.dark-mode .navbar {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  }
+
+  body.dark-mode .prjct,
+  body.dark-mode .technologies,
+  body.dark-mode .overview,
+  body.dark-mode .toolsSection,
+  body.dark-mode .contactCards,
+  body.dark-mode .contactForm,
+  body.dark-mode .prjct:hover,
+  body.dark-mode .technologies:hover,
+  body.dark-mode .overview:hover,
+  body.dark-mode .toolsSection:hover,
+  body.dark-mode .contactCards:hover,
+  body.dark-mode .contactForm:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
   }
 
   .intro h1 {
