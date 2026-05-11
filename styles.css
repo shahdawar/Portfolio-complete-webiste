@@ -14,6 +14,23 @@ body {
   background-color: #e8f0fb;
   overflow-x: hidden;
   touch-action: pan-y;
+  overscroll-behavior-x: none;
+}
+.mainContainer {
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: auto;
+}
+.about,
+.education,
+.projectsMain,
+.mainSkills,
+.mainContact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 620px;
 }
 .navbar {
   display: flex;
@@ -69,7 +86,6 @@ body {
 }
 .menuBtns a:hover {
   color: rgb(144, 144, 244);
-  transition: 0.1s ease-in-out;
 }
 .bi-moon-fill {
   background: transparent;
@@ -148,12 +164,15 @@ body {
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.05),
     0 4px 12px rgba(0, 0, 0, 0.08);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .introBtns a:hover {
   background-color: white;
   color: black;
-  transition: 0.1s ease;
   cursor: pointer;
   border: 1px solid rgb(196, 192, 192);
 }
@@ -290,6 +309,7 @@ strong {
   box-shadow:
     0 3px 8px rgba(0, 0, 0, 0.06),
     0 8px 18px rgba(0, 0, 0, 0.07);
+  contain: layout paint;
 }
 .prjct:hover {
   transform: translateY(-4px) translateZ(0);
@@ -301,11 +321,15 @@ strong {
   border-radius: 12px;
   background-color: rgb(243, 242, 242);
 }
+.profileImage img,
+.prImage img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 .prImage img {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  max-width: 100%;
-  height: auto;
 }
 .prDescription {
   background-color: rgb(243, 242, 242) !important;
@@ -325,6 +349,17 @@ strong {
   display: flex;
   gap: 20px;
   align-items: center;
+}
+.techLogos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.techLogos img {
+  display: inline-block;
+  flex: 0 0 auto;
+  max-width: none;
 }
 .prDescription h2 {
   padding: 8px 6px;
@@ -365,11 +400,14 @@ strong {
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.05),
     0 4px 12px rgba(0, 0, 0, 0.08);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 .prButtons a:hover {
   background-color: white;
   color: black;
-  transition: 0.1s ease;
   cursor: pointer;
   border: 1px solid rgb(196, 192, 192);
 }
@@ -428,6 +466,7 @@ strong {
   box-shadow:
     0 3px 8px rgba(0, 0, 0, 0.06),
     0 8px 18px rgba(0, 0, 0, 0.07);
+  contain: layout paint;
 }
 .overview {
   display: flex;
@@ -448,6 +487,7 @@ strong {
   box-shadow:
     0 3px 8px rgba(0, 0, 0, 0.06),
     0 8px 18px rgba(0, 0, 0, 0.07);
+  contain: layout paint;
 }
 .progrsBars {
   display: flex;
@@ -475,6 +515,11 @@ strong {
   justify-content: center;
   text-align: justify;
   color: hsl(0, 0%, 13%);
+}
+.tools img {
+  display: inline-block;
+  max-width: none;
+  vertical-align: middle;
 }
 .mainContact {
   display: flex;
@@ -522,6 +567,7 @@ strong {
     box-shadow 0.2s ease;
   transform: translateZ(0);
   will-change: transform;
+  contain: layout paint;
 }
 .fa-envelope {
   color: rgb(12, 39, 125);
@@ -564,6 +610,7 @@ strong {
   transform: translateZ(0);
   will-change: transform;
   border-radius: 12px;
+  contain: layout paint;
 }
 .contactForm:hover {
   transform: translateY(-2px) translateZ(0);
@@ -666,7 +713,6 @@ body.dark-mode .introBtns a {
 body.dark-mode .introBtns a:hover {
   background-color: #1e1e1e;
   color: white;
-  transition: 0.1s ease;
 }
 /* About */
 body.dark-mode .about {
@@ -1103,6 +1149,88 @@ body.dark-mode .contactForm button:hover {
   .contactForm form input,
   .contactForm form textarea {
     width: 240px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .nav-hover-zone {
+    display: none;
+  }
+
+  .navbar {
+    transition: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .navbar.hidden {
+    transform: translateZ(0);
+  }
+
+  .about,
+  .education,
+  .projectsMain,
+  .mainSkills,
+  .mainContact {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .prjct,
+  .technologies,
+  .overview,
+  .toolsSection,
+  .contactCards,
+  .contactForm {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: none;
+    transform: translateZ(0);
+    will-change: auto;
+  }
+
+  .prjct:hover,
+  .technologies:hover,
+  .overview:hover,
+  .toolsSection:hover,
+  .contactCards:hover,
+  .contactForm:hover {
+    transform: translateZ(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .introBtns a,
+  .prButtons a,
+  .contactForm button {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition:
+      background-color 0.12s ease,
+      color 0.12s ease,
+      border-color 0.12s ease;
+  }
+
+  body.dark-mode .navbar,
+  body.dark-mode .about,
+  body.dark-mode .education,
+  body.dark-mode .mainSkills,
+  body.dark-mode .mainContact {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  }
+
+  body.dark-mode .prjct,
+  body.dark-mode .technologies,
+  body.dark-mode .overview,
+  body.dark-mode .toolsSection,
+  body.dark-mode .contactCards,
+  body.dark-mode .contactForm,
+  body.dark-mode .prjct:hover,
+  body.dark-mode .technologies:hover,
+  body.dark-mode .overview:hover,
+  body.dark-mode .toolsSection:hover,
+  body.dark-mode .contactCards:hover,
+  body.dark-mode .contactForm:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
   }
 }
 

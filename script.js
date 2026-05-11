@@ -1,18 +1,12 @@
 const navbar = document.querySelector(".navbar");
 const hoverZone = document.querySelector(".nav-hover-zone");
-const mobileQuery = window.matchMedia("(max-width: 480px)");
+const touchQuery = window.matchMedia("(max-width: 768px), (pointer: coarse)");
 
 let lastScrollY = window.scrollY;
 let ticking = false;
+let scrollListening = false;
 
 const updateNavbarOnScroll = () => {
-  if (mobileQuery.matches) {
-    navbar.classList.remove("hidden");
-    lastScrollY = window.scrollY;
-    ticking = false;
-    return;
-  }
-
   if (window.scrollY > lastScrollY) {
     navbar.classList.add("hidden");
   } else {
@@ -23,25 +17,39 @@ const updateNavbarOnScroll = () => {
   ticking = false;
 };
 
-window.addEventListener(
-  "scroll",
-  () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateNavbarOnScroll);
-      ticking = true;
-    }
-  },
-  { passive: true },
-);
+const handleScroll = () => {
+  if (!ticking) {
+    window.requestAnimationFrame(updateNavbarOnScroll);
+    ticking = true;
+  }
+};
 
-mobileQuery.addEventListener("change", () => {
+const syncScrollListener = () => {
   navbar.classList.remove("hidden");
-});
+  lastScrollY = window.scrollY;
+  ticking = false;
+
+  if (touchQuery.matches && scrollListening) {
+    window.removeEventListener("scroll", handleScroll);
+    scrollListening = false;
+    return;
+  }
+
+  if (!touchQuery.matches && !scrollListening) {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    scrollListening = true;
+  }
+};
+
+syncScrollListener();
+touchQuery.addEventListener("change", syncScrollListener);
 
 // hover zone brings navbar back
-hoverZone.addEventListener("mouseenter", () => {
-  navbar.classList.remove("hidden");
-});
+if (!touchQuery.matches) {
+  hoverZone.addEventListener("mouseenter", () => {
+    navbar.classList.remove("hidden");
+  });
+}
 const darkIcon = document.querySelector(".bi-moon-fill");
 
 darkIcon.addEventListener("click", () => {
