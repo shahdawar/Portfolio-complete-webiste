@@ -9,12 +9,14 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 body {
   background-color: #e8f0fb;
   overflow-x: hidden;
   touch-action: pan-y;
   overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
 }
 .mainContainer {
   overflow-x: hidden;
@@ -1171,7 +1173,7 @@ body.dark-mode .contactForm button:hover {
 
 @media (hover: none), (pointer: coarse) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
 
   .nav-hover-zone {
@@ -1284,7 +1286,7 @@ body.dark-mode .contactForm button:hover {
   }
 
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
 
   body {
