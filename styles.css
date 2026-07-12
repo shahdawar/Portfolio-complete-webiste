@@ -647,6 +647,7 @@ strong {
 }
 .contactForm form input,
 textarea,
+.clcik-btn,
 button {
   font-size: 16px;
   padding: 8px;
@@ -658,6 +659,7 @@ button {
   width: 280px;
   background-color: hsla(0, 0%, 34%, 0.283);
 }
+
 .contactForm button {
   background-color: black;
   color: white;
@@ -672,6 +674,21 @@ button {
   color: black;
   cursor: pointer;
 }
+.clcik-btn {
+  background-color: black;
+  color: white;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  width: fit-content;
+  padding: 6px 20px;
+}
+.clcik-btn:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
 label {
   font-weight: 500;
   padding-bottom: 0px;
@@ -964,13 +981,17 @@ body.dark-mode .contactForm form textarea {
 }
 
 /* Button */
-body.dark-mode .contactForm button {
+body.dark-mode .contactForm button,
+body.dark-mode .clcik-btn {
   background-color: #ffffff;
   color: #000000;
   border: 1px solid #444;
   outline: black;
 }
-
+body.dark-mode .clcik-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
 body.dark-mode .contactForm button:hover {
   background-color: #000;
   color: #fff;
